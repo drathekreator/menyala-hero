@@ -34,7 +34,9 @@ Menyala-HERO adalah prototipe Android offline-first. Pendamping dapat mencatat h
 
 **[⬇️ Unduh Menyala-HERO untuk Android](https://github.com/drathekreator/menyala-hero/releases/latest/download/Menyala-HERO-preview.apk)** · [Lihat semua rilis](https://github.com/drathekreator/menyala-hero/releases)
 
-APK ini adalah **build prototipe untuk uji coba**, bukan aplikasi resmi di Google Play. Perangkat perlu Android 10 atau lebih baru. Saat pertama memasang, Android mungkin meminta izin instalasi dari browser atau pengelola berkas.
+Rilis saat ini **v1.0.0-preview** adalah build prototipe bertanda tangan debug untuk uji coba, bukan aplikasi resmi di Google Play. Perangkat perlu Android 10 atau lebih baru. Saat pertama memasang, Android mungkin meminta izin instalasi dari browser atau pengelola berkas. Jika mengganti ke build dengan kunci tanda tangan berbeda, Android mungkin meminta aplikasi lama dihapus; ekspor backup sebelum melakukannya.
+
+SHA-256: `ba697ec76384fc165cea867149627b5c6e4f64eb22a4b854db67667052651591`
 
 ## Cara kerja rekomendasi
 
