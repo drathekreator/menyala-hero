@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "model_name": "Baseline-only Logistic Regression",
+  "model_version": "0.1.0-prototype",
+  "trained_from": "Dataset_Heroism.xlsx / Dataset_Model",
+  "training_rows": 51,
+  "features": {
+    "numeric": [
+      "Usia",
+      "IF_Pre",
+      "OMD_Pre"
+    ],
+    "categorical": [
+      "Jenis_Kelamin",
+      "Terlibat_Memulung"
+    ],
+    "transformed_order": [
+      "numeric__Usia",
+      "numeric__IF_Pre",
+      "numeric__OMD_Pre",
+      "categorical__Jenis_Kelamin_L",
+      "categorical__Jenis_Kelamin_P",
+      "categorical__Terlibat_Memulung_Tidak",
+      "categorical__Terlibat_Memulung_Ya"
+    ],
+    "numeric_imputation_median": [
+      10.0,
+      28.0,
+      28.0
+    ],
+    "numeric_mean": [
+      10.254901960784315,
+      30.254901960784313,
+      30.11764705882353
+    ],
+    "numeric_scale": [
+      1.7017077610782063,
+      11.304767582238368,
+      9.906716000504316
+    ],
+    "categorical_categories": [
+      [
+        "L",
+        "P"
+      ],
+      [
+        "Tidak",
+        "Ya"
+      ]
+    ]
+  },
+  "decision_threshold": 0.5,
+  "targets": [
+    {
+      "id": "Y_Potensi",
+      "program": "HERO Asa",
+      "positive_label": "Perlu",
+      "class_order": [
+        0,
+        1
+      ],
+      "coefficients": [
+        0.3190095334955395,
+        -0.6269257769159358,
+        0.25763994680918284,
+        0.5945906329185909,
+        -0.5937969082669589,
+        0.23032637166827213,
+        -0.22953264701663897
+      ],
+      "intercept": -0.06646113025713411
+    },
+    {
+      "id": "Y_Eksplorasi",
+      "program": "HERO Aksi",
+      "positive_label": "Perlu",
+      "class_order": [
+        0,
+        1
+      ],
+      "coefficients": [
+        0.09887719858157532,
+        0.42611358857388126,
+        -0.4990244351905229,
+        0.17618578806251092,
+        -0.18049684772301902,
+        0.06825884224679753,
+        -0.07256990190730567
+      ],
+      "intercept": -0.0064455914842326085
+    },
+    {
+      "id": "Y_Refleksi",
+      "program": "HERO Rasa",
+      "positive_label": "Perlu",
+      "class_order": [
+        0,
+        1
+      ],
+      "coefficients": [
+        0.2721909047762845,
+        0.16524774142782062,
+        -0.4753891478640222,
+        0.12071042471437346,
+        -0.11940565762048386,
+        -0.3513025923583077,
+        0.35260735945219823
+      ],
+      "intercept": -0.04567114573183035
+    },
+    {
+      "id": "Y_Perencanaan",
+      "program": "HERO Karsa",
+      "positive_label": "Perlu",
+      "class_order": [
+        0,
+        1
+      ],
+      "coefficients": [
+        0.008014370490462348,
+        0.6093041786631995,
+        -0.3962430948976758,
+        0.08337464533906572,
+        -0.083105092999993,
+        -0.1365224784245298,
+        0.13679203076360252
+      ],
+      "intercept": -0.033034849232803476
+    }
+  ],
+  "target_definition": "Perlu = historical post-test score below 30; proxy label, not an approved support-need diagnosis.",
+  "cross_validation": {
+    "method": "MultilabelStratifiedKFold",
+    "folds": 5,
+    "repeats": 5,
+    "summary": {
+      "macro_f1": {
+        "mean": 0.4322013542013542,
+        "std": 0.11017176210840442
+      },
+      "macro_precision": {
+        "mean": 0.4246587301587301,
+        "std": 0.10793568379728358
+      },
+      "macro_recall": {
+        "mean": 0.47883333333333333,
+        "std": 0.1526337073228293
+      },
+      "hamming_loss": {
+        "mean": 0.4934545454545455,
+        "std": 0.08440594142392112
+      },
+      "subset_accuracy": {
+        "mean": 0.08145454545454546,
+        "std": 0.09164399920088429
+      }
+    }
+  },
+  "field_validation": "Not yet field-validated on a new cohort.",
+  "use_limit": "Experimental risk estimate for human review. It does not estimate causal benefit or select the best intervention."
+}

@@ -1,0 +1,19 @@
+# This public repository contains only the README and Android source project.
+*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/hero-compass-android/
+!/hero-compass-android/**
+
+# Local Android tooling, generated output, and session notes.
+hero-compass-android/.devtools/
+hero-compass-android/.gradle/
+hero-compass-android/.idea/
+hero-compass-android/**/build/
+hero-compass-android/local.properties
+hero-compass-android/SESSION_CONTEXT.md
+
+# Draft material is kept outside the public source repository.
+hero-compass-android/ARTIKEL_MENYALA_HERO_BAB_I_DRAFT.md
+hero-compass-android/PROSEDUR_FINE_TUNING_OCR_MENYALA_HERO.md
