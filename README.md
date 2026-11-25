@@ -60,3 +60,7 @@ Data anak dan catatan pendamping disimpan terenkripsi di perangkat. Repository i
 ## Dukungan platform
 
 Saat ini aplikasi hanya tersedia untuk Android. APK tidak dapat dipasang di iPhone; dukungan iOS dan web memerlukan pengembangan lintas platform tersendiri. Data lokal Android juga tidak otomatis tersinkron ke perangkat lain.
+
+## ML notebooks
+
+The [`notebooks/`](notebooks/) folder contains the EDA notebook, three initial model-comparison notebooks, and the training script for the baseline-only Logistic Regression artifact used by the Android prototype. The child-assessment dataset is intentionally not included; use only an authorized local copy and do not commit participant-level data. The initial 9-feature experiments are distinct from the baseline-only model in the app; see the notebook README for details.

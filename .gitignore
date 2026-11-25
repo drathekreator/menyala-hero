@@ -17,3 +17,9 @@ hero-compass-android/SESSION_CONTEXT.md
 # Draft material is kept outside the public source repository.
 hero-compass-android/ARTIKEL_MENYALA_HERO_BAB_I_DRAFT.md
 hero-compass-android/PROSEDUR_FINE_TUNING_OCR_MENYALA_HERO.md
+
+# Reproducible ML notebooks (dataset and generated artifacts stay local).
+!/notebooks/
+!/notebooks/**
+notebooks/.ipynb_checkpoints/
+notebooks/**/.ipynb_checkpoints/
