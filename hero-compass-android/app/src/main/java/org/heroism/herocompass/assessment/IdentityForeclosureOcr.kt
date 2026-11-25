@@ -397,15 +397,18 @@ internal object IdentityResponseGridReader {
             selectRowLines(horizontalScores, height, itemStatements.size + 1, pixels, width, columns.first(), requireStatementInk = true)
                 ?: selectRowLines(horizontalScores, height, itemStatements.size + 1, pixels, width, columns.first())
         }
-        val rowRanges = if (questionRowStarts.size == itemStatements.size) {
+        // Use the printed horizontal grid lines when they were located. OCR statement boxes start
+        // below each row's top border and can span very different heights as text wraps; treating
+        // them as cell bounds clips marks near the row edge and shifts later rows.
+        val rowRanges = if (rowLines != null) {
+            rowLines.zipWithNext { top, bottom -> top to bottom }
+        } else if (questionRowStarts.size == itemStatements.size) {
             val gaps = questionRowStarts.zipWithNext { a, b -> b - a }.sorted()
             val typicalGap = gaps[gaps.size / 2]
             questionRowStarts.mapIndexed { index, start ->
                 val end = questionRowStarts.getOrNull(index + 1) ?: start + typicalGap
                 max(0, start) to min(height, end)
             }
-        } else if (rowLines != null) {
-            rowLines.zipWithNext { top, bottom -> top to bottom }
         } else {
             Log.w("AssessmentGrid", "No response row geometry rowLines=${rowLines?.size} questionRows=${questionRowStarts.size} itemCount=${itemStatements.size}")
             return null
@@ -451,11 +454,16 @@ internal object IdentityResponseGridReader {
         scaleBoundaries(labels, width)
 
     private fun calibratedColumns(width: Int, instrumentLabel: String): List<Int> {
-        val fractions = if (instrumentLabel == "Orientasi Masa Depan") {
-            // Calibrated against the printed response table in the Nurmi booklet page.
-            listOf(.582f, .637f, .693f, .748f, .808f)
-        } else {
-            listOf(.60f, .655f, .71f, .765f, .82f)
+        val fractions = when (instrumentLabel) {
+            IdentityForeclosureInstrument.TITLE -> listOf(.628f, .713f, .798f, .883f, .968f)
+            FutureOrientationInstrument.TITLE -> {
+                // Calibrated against the printed response table in the Nurmi booklet page.
+                listOf(.582f, .637f, .693f, .748f, .808f)
+            }
+            HeroAsaInstrument.TITLE -> listOf(.597f, .647f, .697f, .747f, .797f)
+            HeroAksiInstrument.TITLE -> listOf(.620f, .673f, .724f, .778f, .832f)
+            HeroRasaInstrument.TITLE -> listOf(.614f, .664f, .714f, .764f, .814f)
+            else -> listOf(.60f, .655f, .71f, .765f, .82f)
         }
         return fractions.map { roundToInt(width * it) }
     }
