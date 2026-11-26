@@ -455,10 +455,10 @@ internal object IdentityResponseGridReader {
 
     private fun calibratedColumns(width: Int, instrumentLabel: String): List<Int> {
         val fractions = when (instrumentLabel) {
-            IdentityForeclosureInstrument.TITLE -> listOf(.628f, .713f, .798f, .883f, .968f)
+            IdentityForeclosureInstrument.TITLE -> listOf(.544f, .603f, .664f, .723f, .782f)
             FutureOrientationInstrument.TITLE -> {
                 // Calibrated against the printed response table in the Nurmi booklet page.
-                listOf(.582f, .637f, .693f, .748f, .808f)
+                listOf(.576f, .632f, .688f, .744f, .800f)
             }
             HeroAsaInstrument.TITLE -> listOf(.597f, .647f, .697f, .747f, .797f)
             HeroAksiInstrument.TITLE -> listOf(.620f, .673f, .724f, .778f, .832f)
